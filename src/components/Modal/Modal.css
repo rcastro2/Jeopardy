@@ -1,0 +1,24 @@
+.ModalOpen{
+    height:100%;
+    width:100%;
+    min-height:100%;/*for mozilla*/
+    background-color:blue;
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1
+}
+.ModalClose{
+    display:none;
+}
+
+.userInput{
+    font-size:48pt;
+    background-color:blue;
+    color:white;
+    border:0px solid blue;
+    border-bottom:1px solid #ddd;
+    outline:none;
+
+}

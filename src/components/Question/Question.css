@@ -1,0 +1,24 @@
+.Question{
+    background-color:blue;
+    color:white;
+}
+
+.description{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:blue;
+    color:yellow;
+    width:100%;
+    vertical-align:center;
+    height:100px;  
+    border-top:2px solid black;  
+    border-bottom:2px solid black; 
+}
+.description h3{
+    margin:5px;
+}
+
+.viewed{
+    visibility:hidden;
+}

@@ -1,0 +1,24 @@
+.Board{
+    /*min-height:500px;*/
+    color:white;
+    background-color:black;
+    height:100%;
+    width:100%;
+    min-height:100%;/*for mozilla*/
+    position:absolute;
+}
+.Board > .score{
+    position:absolute;
+    top:5px;
+    left:5px;
+    color:black;
+    background-color:white;
+    border-radius:5px;
+    box-shadow:1px 1px 1px blue;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:50px;
+    width:100px;
+    z-index:0;
+}
