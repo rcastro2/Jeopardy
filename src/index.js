@@ -3,18 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {catIDs} from './CategoryIds'
+import {categories} from './CategoriesData'
 
-const selected = []
-while(selected.length < 5){
-    let r = Math.floor(Math.random()*catIDs.length)
-    if(!selected.includes(r)){
-        selected.push(r);
+const selectedIDs = []
+const selectedCategories = []
+while(selectedIDs.length < 5){
+    let r = Math.floor(Math.random()*categories.length)
+    if(!selectedIDs.includes(r)){
+        selectedIDs.push(r);
+        selectedCategories.push(categories[r]);
     }
 }
 
 //Callback Hell!
 let catData = []
+//http://jservice.io/api/clues?category=
+const link = "https://jservice--rennecastro.repl.co/clues/"
+Promise.all( selectedCategories.map(result => fetch(link + result.id)
+                                            .then(d => d)
+                                            .then(d => d.json())
+                                            .then(d => catData.push({title:result.title, questions:d}))
+                                    )  
+            )
+            .then( data => {
+                ReactDOM.render(<App info={catData}/>, document.getElementById('root')); 
+            })
+            .catch( err => console.error(err))
+
+
+/*
 const request = require('request');
 request("http://jservice.io/api/clues?category=" + catIDs[selected[0]].id, function(err, res, body) {
     if (err)
@@ -67,7 +84,7 @@ request("http://jservice.io/api/clues?category=" + catIDs[selected[0]].id, funct
         })      
     })
 })
-
+*/
 /*
 //Test Data - In case of no Internet
 catData = [{
