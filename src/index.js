@@ -17,13 +17,10 @@ while(selectedIDs.length < 5){
 
 //Callback Hell!
 let catData = []
-<<<<<<< HEAD
+
 //http://jservice.io/api/clues?category=
 const link = "https://jservice--rennecastro.repl.co/clues/"
 Promise.all( selectedCategories.map(result => fetch(link + result.id)
-=======
-Promise.all( selectedCategories.map(result => fetch(`http://jservice.io/api/clues?category=${result.id}`)
->>>>>>> 647f6052c03ef2bafaf6927b79f52251937fb8ca
                                             .then(d => d)
                                             .then(d => d.json())
                                             .then(d => catData.push({title:result.title, questions:d}))
